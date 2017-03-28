@@ -16,7 +16,7 @@ namespace SimpleReminder
             bool result = false;
 
             return result;
-        }
+        } 
 
         public static bool CreateFile(string path, string name)
         {
