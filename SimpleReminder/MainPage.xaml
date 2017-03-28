@@ -1,0 +1,57 @@
+﻿<Page x:Class="SimpleReminder.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SimpleReminder"
+      mc:Ignorable="d" 
+     
+      Title="AgencePage" d:DesignHeight="473.448">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="65*"/>
+            <ColumnDefinition Width="263*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="265*"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <DockPanel HorizontalAlignment="Stretch" LastChildFill="False"  VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+            <Label x:Name="label" Content="Agence :" Height="32" VerticalAlignment="Top" RenderTransformOrigin="0.555,1.124" Margin="10,8,0,8"/>
+            <ComboBox x:Name="_agence" Height="32" VerticalAlignment="Top" Width="120" Margin="15,8,15,0"/>
+            <Button x:Name="editionAgence" Content="Ajouter un Rappel" Height="32" VerticalAlignment="Top" Width="118" DockPanel.Dock="Right" Margin="0,11,10,0" Background="#FFA03BDA" BorderBrush="#FF8225A2" TabIndex="3" FontWeight="Bold" Foreground="White" Click="editionAgence_Click_1" Padding="1,1,7,1" />
+            <Label x:Name="label1" Content="Montant Supérieur à : " Height="30" VerticalAlignment="Top" Margin="-5,10,0,0"/>
+            <TextBox x:Name="_montantMin" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="0,10,0,0" Padding="2,5,0,0" FontSize="13"/>
+            <Label x:Name="label2" Content="Date de Rappel :" Height="30" VerticalAlignment="Top" Margin="0,11,0,0"/>
+            <DatePicker x:Name="_dtRappel" Height="30" VerticalAlignment="Top" Margin="0,11,0,0"  Width="103" Focusable="False" />
+            <Button x:Name="button" Content="Filtrer &gt;&gt;" Height="30" VerticalAlignment="Top" Width="75" Margin="10,10,0,0" Background="#FF4199E2" BorderBrush="#FF1C3C93" Foreground="White" FontWeight="Bold" Click="button_Click"/>
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Stretch" Height="Auto" LastChildFill="False"  VerticalAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid MinWidth="974" HorizontalAlignment="Stretch">
+                <ListView Margin="10,10,10.4,10" Name="ListeRappels" Width="Auto" HorizontalAlignment="Stretch" SelectionChanged="ListeRappels_SelectionChanged">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Date Rappel" Width="auto" DisplayMemberBinding="{Binding DateRappel}" />
+                            <GridViewColumn Header="Agence" Width="auto"  DisplayMemberBinding="{Binding Agence.Nom}" />
+                            <GridViewColumn Header="Tel" Width="auto"  DisplayMemberBinding="{Binding Telephone}" />
+                            <GridViewColumn Header="N° Dossier" Width="auto" DisplayMemberBinding="{Binding NumDossier}" />
+                            <GridViewColumn Header="Montant" Width="auto" DisplayMemberBinding="{Binding Montant}" />
+                            <GridViewColumn Header="Nom des Clients" Width="auto" DisplayMemberBinding="{Binding NomClient}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+
+
+        </DockPanel>
+
+
+    </Grid>
+</Page>
